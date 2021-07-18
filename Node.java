@@ -165,33 +165,7 @@ class Node
 		Node.display(List);
 		return List;
 	}
-        //finding element exists or not
-	public static boolean search(Node List)
-	{
-		System.out.println("Enter the Element you want to find");
-		Scanner sc=new Scanner(System.in);
-		int search=sc.nextInt();
-		Node temp;
-		temp=List;
-		while(true)
-		{
-			if(temp.data==search)
-			{
-				System.out.println("The Value is Found");
-				return true;
-			}
-			else if(temp.next==null)
-			{
-				System.out.println("Not found");
-				return false;
-			}
-			else
-			{
-				temp=temp.next;
-			}
-		}
-	}
-        //method to insert element after
+	//method to insert element after
 	public static Node insertAfter(Node List)
 	{
 		System.out.println("Enter the number After you want to insert:");
@@ -225,7 +199,7 @@ class Node
 		Node.display(List);
 		return List;
 	}
-        //method to delete particular element
+	//method to delete particular element
 	public static Node delete(Node List)
 	{
 		System.out.println("Enter the element you want to delete:");
@@ -252,3 +226,118 @@ class Node
 		Node.display(List);
 		return List;
 	}
+	//finding element exists or not
+	public static boolean search(Node List)
+	{
+		System.out.println("Enter the Element you want to find");
+		Scanner sc=new Scanner(System.in);
+		int search=sc.nextInt();
+		Node temp;
+		temp=List;
+		while(true)
+		{
+			if(temp.data==search)
+			{
+				System.out.println("The Value is Found");
+				return true;
+			}
+			else if(temp.next==null)
+			{
+				System.out.println("Not found");
+				return false;
+			}
+			else
+			{
+				temp=temp.next;
+			}
+		}
+	}
+	//method to display all the elements in the list
+	public static void display(Node List)
+	{
+		Node temp;
+		if(List!=null)
+		{
+			temp=List;
+			System.out.println("The Elements are:");
+			while(true)
+			{
+				System.out.print(temp.data+"\t");
+				if(temp.next!=null)
+				{
+					temp=temp.next;
+				}
+				else
+				{
+					System.out.println();
+					break;
+				}
+			}
+		}
+	}
+	//method to display elements in ascending order
+	public Node orderedList(Node List)
+	{
+		//array for storing elements in list
+		int[] x=new int[100];
+		int num=0;
+		Node temp=List;
+		while(true)
+		{
+			if(temp.next!=null)
+			{
+				//storing all the list elements into array
+				x[num]=temp.data;
+				temp=temp.next;
+				num++;
+			}
+			else if(temp.next==null)
+			{
+				x[num]=temp.data;
+				num++;
+				break;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		x=sort(x,num);
+		List=null;
+		for(int i=0;i<num;i++)
+		{
+			if(List==null)
+			{
+				List=new Node(x[i]);
+			}
+			else if(List!=null)
+			{
+
+				temp=new Node(x[i]);
+				temp.next=List;
+				List=temp;
+			}
+		}
+		Node.display(List);
+		return List;
+	}
+	//sorting method
+	public static int[] sort(int[] x,int num)
+	{
+		for(int i=0;i<num;i++)
+		{
+			for(int j=i+1;j<num;j++)
+			{
+				if(x[i]<x[j])
+				{
+					int temp=x[i];
+					x[i]=x[j];
+					x[j]=temp;
+				}
+			}
+		}
+		return x;
+	}
+}
+
