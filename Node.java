@@ -32,3 +32,41 @@ class Node
 		Node.display(List);
 		return List;
 	}
+	//method to append data in the list
+	public static Node append(Node List)
+	{
+		int num;
+		Node temp;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number you want to Append:");
+		num=sc.nextInt();
+		temp=List;
+		//if list is null then adding new node in the list
+		if(List==null)
+		{
+			List=new Node(num);
+		}
+		else if(List!=null)
+		{
+			while(true)
+			{
+				//iterating with all the elements
+				if(temp.next!=null)
+				{
+					temp=temp.next;
+				}
+				//if next element is null then adding element at last 
+				else if(temp.next==null)
+				{
+					temp.next=new Node(num);
+					break;
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+		Node.display(List);
+		return List;
+	}

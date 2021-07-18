@@ -9,7 +9,7 @@ public class Linkedlist
 		Node temp;
 		while(true)
 		{
-			System.out.println("1.Add\2.Exit");
+			System.out.println("1.Add\2.Append\3.exit");
 			int num;
 			System.out.print("Your Choice:");
 			int choice=sc.nextInt();
@@ -17,7 +17,9 @@ public class Linkedlist
 			{
 			case 1:List=List.add(List);
 			break;
-			case 2:System.exit(0);
+			case 2:List=List.append(List);
+			break;
+			case 3:System.exit(0);
 			break;
 			default:System.out.println("You Entered Wrong Value");
 			break;
