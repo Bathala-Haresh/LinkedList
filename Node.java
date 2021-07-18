@@ -191,3 +191,37 @@ class Node
 			}
 		}
 	}
+        //method to insert element after
+	public static Node insertAfter(Node List)
+	{
+		System.out.println("Enter the number After you want to insert:");
+		Node temp;
+		Scanner sc=new Scanner(System.in);
+		int after=sc.nextInt();
+		temp=List;
+		while(true)
+		{
+			//checking if number exists in the list or not
+			if(temp.data==after)
+			{
+				System.out.println("Enter the number you want to insert");
+				after=sc.nextInt();
+				//creating a temp2 node and adding new element in that
+				Node temp2=new Node(after);
+				temp2.next=temp.next;
+				//adding new element after the particular element
+				temp.next=temp2;
+				break;
+			}
+			else if(temp.next==null)
+			{
+				break;
+			}
+			else
+			{
+				temp=temp.next;
+			}
+		}
+		Node.display(List);
+		return List;
+	}
