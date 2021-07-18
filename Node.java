@@ -70,3 +70,63 @@ class Node
 		Node.display(List);
 		return List;
 	}
+	//method to insert element between 2 numbers
+	public static Node insertBetween(Node List)
+	{
+		System.out.println("Enter the First number:");
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		Node temp=List;
+		while(true)
+		{
+			//checking if given number is in the list
+			if(temp.data==num)
+			{
+				//adding the list to temp1
+				Node temp1=temp;
+				int count=0;
+				System.out.println("Enter the Second number:");
+				num=sc.nextInt();
+				while(true)
+				{
+					//checking if second number also exists or not
+					if(temp.data==num)
+					{
+						//iterating all the list between these 2 numbers
+						for(int i=1;i<=count/2;i++)
+						{
+							temp1=temp1.next;
+						}
+						System.out.println("Enter the Number you want to insert:");
+						num=sc.nextInt();
+						//adding the element to temp2 list
+						Node temp2=new Node(num);
+
+						temp2.next=temp1.next;
+						//adding the new element in between 2 elements
+						temp1.next=temp2;
+						break;
+					}
+					else if(temp.next==null)
+					{
+						break;
+					}
+					else
+					{
+						temp=temp.next;
+						count++;
+					}
+				}
+			}
+			else if(temp.next==null)
+			{
+				break;
+			}
+			else
+			{
+				temp=temp.next;
+			}
+		}
+		Node.display(List);
+		return List;
+	}
