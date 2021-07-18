@@ -165,3 +165,29 @@ class Node
 		Node.display(List);
 		return List;
 	}
+        //finding element exists or not
+	public static boolean search(Node List)
+	{
+		System.out.println("Enter the Element you want to find");
+		Scanner sc=new Scanner(System.in);
+		int search=sc.nextInt();
+		Node temp;
+		temp=List;
+		while(true)
+		{
+			if(temp.data==search)
+			{
+				System.out.println("The Value is Found");
+				return true;
+			}
+			else if(temp.next==null)
+			{
+				System.out.println("Not found");
+				return false;
+			}
+			else
+			{
+				temp=temp.next;
+			}
+		}
+	}
