@@ -225,3 +225,30 @@ class Node
 		Node.display(List);
 		return List;
 	}
+        //method to delete particular element
+	public static Node delete(Node List)
+	{
+		System.out.println("Enter the element you want to delete:");
+		Scanner sc=new Scanner(System.in);
+		Node temp;
+		int delete=sc.nextInt();
+		temp=List;
+		while(true)
+		{
+			if(temp.data==delete)
+			{
+				temp.next=temp.next.next;
+				break;
+			}
+			else if(temp.next==null)
+			{
+				break;
+			}
+			else
+			{
+				temp=temp.next;
+			}
+		}
+		Node.display(List);
+		return List;
+	}
