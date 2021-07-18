@@ -6,7 +6,7 @@ public class Linkedlist
 		Node temp;
 		while(true)
 		{
-			System.out.println("1.Add\t2.Append\t3.Insert Between\t4.delete first\t5.Exit");
+			System.out.println("1.Add\t2.Append\t3.Insert Between\t4.delete last\t5.delete first\t6.exit");
 			int num;
 			System.out.print("Your Choice:");
 			int choice=sc.nextInt();
@@ -20,7 +20,9 @@ public class Linkedlist
 			break;
                         case 4:List=List.deleteLast(List);
 			break;
-                        case 5:System.exit(0);
+                        case 5:List=List.deleteFirst(List);
+			break;
+                        case 6:System.exit(0);
 			break;
 			default:System.out.println("You Entered Wrong Value");
 			break;
