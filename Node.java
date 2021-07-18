@@ -130,3 +130,38 @@ class Node
 		Node.display(List);
 		return List;
 	}
+	//method to delete last element
+	public static Node deleteLast(Node List)
+	{
+		Node temp;
+		temp=List;
+		while(true)
+		{
+			if(temp.next.next!=null)
+			{
+				temp=temp.next;
+			}
+			else if(temp.next.next==null)
+			{
+				temp.next=null;
+				break;
+			}
+			else
+			{
+				break;
+			}
+		}
+		Node.display(List);
+		return List;
+	}
+	//method to delete first element
+	public static Node deleteFirst(Node List)
+	{
+		Node temp;
+		//storing the second element in temp
+		temp=List.next;
+		//shifting the second element to first element
+		List=temp;
+		Node.display(List);
+		return List;
+	}
